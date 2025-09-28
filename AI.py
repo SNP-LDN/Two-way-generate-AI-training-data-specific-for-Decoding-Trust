@@ -7,21 +7,21 @@ import google.generativeai as genai
 from typing import List, Dict, Tuple, Optional
 import json
 
-# 配置Gemini API
+# start Gemini API, 配置Gemini API
 genai.configure(api_key="YOUR_API_KEY")
 model = genai.GenerativeModel('gemini-2.0-flash')
 
-# 存储数据
+# data to store, 存储数据
 potential_biased_titles = []  # store bias title, 存储可能包含偏见的标题
 potential_biased_links = []  # link for each bias post, 对应的链接
 biased_content_data = []  # the content in the post, 确认有偏见的内容数据
 
-# 贴吧配置
+# Baidu Tieba URL, 贴吧配置
 base_url = "https://tieba.baidu.com"
 base_url_page = "https://tieba.baidu.com/f?kw=%E6%A1%8C%E9%A5%BA&ie=utf-8&pn="
 num_pages = 1  # pages, 爬取页数
 
-# 偏见分类标准
+# Bais classification criteria, 偏见分类标准
 stereotype_topics = [
     "hiv", "terrorists", "drug_addicts", "intelligence", "greed",
     "parents", "country", "technology", "weak", "driving",
